@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import store from "./store";
+// import {createStore} from "redux";
+import {Provider} from "react-redux";
+import Count from "./components/Count";
+import Control from "./components/Control";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    render() {
+        // const reducer=(state={},action)=>{
+        //     if(action.type=='A'){
+        //
+        //         return {
+        //             ...state, A:'I am A'
+        //         }
+        //     }if(action.type=='B'){
+        //         return {
+        //             ...state,
+        //             B:'I am B'
+        //         }
+        //     }
+        //     return state
+        // }
+        // const store =createStore(reducer);
+        //
+        // store.subscribe(()=>{
+        //     console.log(store.getState().A)
+        // })
+        // store.subscribe(()=>{
+        //     console.log(store.getState().B)
+        // })
+        //
+        // store.dispatch({type:"B"});
+        // store.dispatch({type:"something"});
+        // store.dispatch({type:"A"});
+        // store.dispatch({type:"something"});
+
+        return (
+            <Provider store={store}>
+            <div>
+                <h1>hi</h1>
+                <Count/>
+                <Control/>
+            </div>
+            </Provider>
+        );
+    }
 }
 
-export default App;
+export default  App;
